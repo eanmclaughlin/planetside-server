@@ -1,0 +1,12 @@
+{
+  "name": "planetside-backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./app"
+  },
+  "dependencies": {
+    "debug": "~2.2.0",
+    "planetside-database": "computertechie/planetside-database"
+  }
+}
