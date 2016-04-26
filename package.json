@@ -24,6 +24,7 @@
     "express": "^4.13.4",
     "planetside-census": "computertechie/planetside-census",
     "planetside-database": "computertechie/planetside-database",
+    "planetside-websocket": "computertechie/planetside-websocket",
     "socket.io": "^1.4.5"
   }
 }

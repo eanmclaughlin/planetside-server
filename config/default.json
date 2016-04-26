@@ -1,0 +1,27 @@
+{
+  "database": {
+    "db_uri": "mongodb://localhost/planetsidetest",
+    "db_options": {
+      "user": "",
+      "pass": ""
+    }
+  },
+  "ps2websocket": {
+    "default": {
+      "service": "event",
+      "action": "subscribe",
+      "worlds": [
+        "all"
+      ],
+      "eventNames": [
+        "all"
+      ],
+      "characters": [
+        "all"
+      ]
+    }
+  },
+  "ps2auth" : {
+    "service_id" : "s:example"
+  }
+}
