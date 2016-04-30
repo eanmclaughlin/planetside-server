@@ -2,9 +2,14 @@ var app = require('express')();
 var http = require('http').Server(app);
 var config = require('./config/default.json');
 
-var AlertTracker = require('./lib/AlertTracker');
 var PlanetsideDatabase = new (require('planetside-database'))(config.database);
-var SocketServer = require('./lib/SocketServer')(http, PlanetsideDatabase, AlertTracker);
+
+var AlertTracker = new (require('./lib/AlertTracker'))(PlanetsideDatabase);
+var PopulationTracker = new (require('./lib/PopulationTracker'))(PlanetsideDatabase);
+
+var SessionTracker;
+
+var SocketServer = require('./lib/SocketServer')(http, PlanetsideDatabase, AlertTracker, PopulationTracker);
 
 
 app.get('/', function (req, res) {
