@@ -9,11 +9,11 @@
 <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
 <script>
     var socket = io('/live');
-    socket.emit("subscribe", JSON.stringify({events: ["AchievementEarned"]}));
+    socket.emit("subscribe", JSON.stringify({events: ["Death"]}));
     socket.on('event', function (message) {
         message.now = Date.now();
         var procTime = message.now - message.received;
-        $('body').append('<div>'+procTime+' '+JSON.stringify(message));
+        $('body').prepend('<div>'+procTime+' '+JSON.stringify(message));
     });
 </script>
 </body>
