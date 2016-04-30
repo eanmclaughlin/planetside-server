@@ -1,7 +1,11 @@
-var SubscriptionFilter = require('./lib/EventFilter');
 var app = require('express')();
 var http = require('http').Server(app);
-var SocketServer = require('./lib/SocketServer')(http);
+var config = require('./config/default.json');
+
+var AlertTracker = require('./lib/AlertTracker');
+var PlanetsideDatabase = new (require('planetside-database'))(config.database);
+var SocketServer = require('./lib/SocketServer')(http, PlanetsideDatabase, AlertTracker);
+
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + "/index.html");
