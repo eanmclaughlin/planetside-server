@@ -2,7 +2,7 @@
  * Created by ean.mclaughlin on 4/28/2016.
  */
 "use strict";
-var Census = new (require('planetside-census'))({service_id:'s:conneryopsnight'});
+var Census = new (require('planetside-census'))();
 
 module.exports.retrieveCharacter = function (character_id) {
     var query = new Census.CensusQuery();
@@ -15,7 +15,6 @@ module.exports.retrieveCharacter = function (character_id) {
         return new Error('no character found for ID ' + character_id);
     });
 };
-
 
 module.exports.retrieveOutfit = function (outfit_id) {
     var query = new Census.CensusQuery();
@@ -48,7 +47,6 @@ module.exports.retrieveExperienceEvent = function (experience_id) {
         return new Error("No experience event found for id " + experience_id);
     })
 };
-
 
 module.exports.retrieveFacility = function (facility_id) {
     var query = new Census.CensusQuery();
