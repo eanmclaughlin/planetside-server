@@ -13,6 +13,8 @@ module.exports.retrieveCharacter = function (character_id) {
         if (data && data.returned)
             return data.character_list[0];
         return new Error('no character found for ID ' + character_id);
+    }).catch((error) => {
+        throw error;
     });
 };
 
@@ -24,6 +26,8 @@ module.exports.retrieveOutfit = function (outfit_id) {
         if (data && data.returned)
             return data.outfit_list[0];
         return new Error('Outfit not found for id ' + outfit_id);
+    }).catch((error) => {
+        throw error;
     });
 };
 
@@ -35,6 +39,8 @@ module.exports.retrieveWeaponAsItem = function (weapon_item_id) {
         if (data && data.returned)
             return data.item_list[0];
         return new Error('No item found for ' + weapon_item_id);
+    }).catch((error) => {
+        throw error;
     });
 };
 
@@ -45,6 +51,8 @@ module.exports.retrieveExperienceEvent = function (experience_id) {
         if (data && data.returned)
             return data.experience_list[0];
         return new Error("No experience event found for id " + experience_id);
+    }).catch((error) => {
+        throw error;
     })
 };
 
@@ -54,10 +62,12 @@ module.exports.retrieveFacility = function (facility_id) {
     query.where("facility_id", facility_id);
 
     return query.get("map_region").then(function (data) {
-            if (data && data.returned)
-                return data.map_region_list[0];
-            return new Error("No facility found for id " + facility_id);
-        });
+        if (data && data.returned)
+            return data.map_region_list[0];
+        return new Error("No facility found for id " + facility_id);
+    }).catch((error) => {
+        throw error;
+    });
 };
 
 module.exports.retrieveAchievement = function (achievement_id) {
@@ -68,5 +78,7 @@ module.exports.retrieveAchievement = function (achievement_id) {
         if (data && data.returned)
             return data.achievement_list[0];
         return new Error('No achievement found for id ' + achievement_id);
+    }).catch((error) => {
+        throw error;
     })
 };
